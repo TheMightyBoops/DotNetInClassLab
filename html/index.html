@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- BS StyleSheet TeeHee-->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../jquery-ui-1.12.1.custom/jquery-ui.min.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <title>BootstrapDemo</title>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">MVC Man</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#collapse-menu">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="collapse-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Blog</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Links<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="http://asp.net"> ASP.NET </a></li>
+                        <li><a href="http://www.w3schools.com"> W3Schools </a></li>
+                        <li><a href="http://stackoverflow.com"> Stack Overflow </a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>The MVC Source</h1>
+        <p>
+            Sample stuff lorren ippsum and whatnot.
+        </p>
+        <button class="btn btn-info">
+            Start Now
+        </button>
+    </div>
+</div>
+
+<div class="container">
+    <h1> Happy Birthday </h1>
+    <form role="form">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name"
+                           placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="birthday">Birthday</label>
+                    <input type="text" class="form-control" id="birthday"
+                    placeholder="Enter Birthday">
+                </div>
+                <div class="col-sm-6" style="text-align: center">
+                    <img src="../assets/blue.png" alt="Blue Balloon"
+                         class="ball" id="bbImg">
+                    <img src="../assets/blue_green.png" alt="Blue Green Balloon"
+                         class="ball" id="bgbImg">
+                    <img src="../assets/green.png" alt="Green Balloon"
+                         class="ball" id="gbImg">
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <b>Select Your Favorite Balloons</b>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" class="bx" id="bb">
+                    Blue Balloon
+                </label>
+                <label>
+                    <input type="checkbox" class="bx" id="bgb">
+                    Blue Green
+                </label>
+                <label>
+                    <input type="checkbox" class="bx" id="gb">
+                    Green
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+        <p class="navbar-text"><i>&copy; 2018 Lucas Nolting</i></p>
+        <button type="button" class="btn btn-default navbar-btn pull-right">
+            Sign in
+        </button>
+    </div>
+</nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./../js/bootstrap.js"></script>
+<script src="./../jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+
+<script>
+    $(function(){
+        // attach datepicker to textbox
+        var $newSelector =  $('#' + $(this).attr('id') + 'Img');
+
+
+        $('#birthday').datepicker({dateFormat: "mm-dd"});
+        $('.ball').draggable({appendTo: "body"}).addClass('animated bounce');
+        $('h1').addClass('animated shake');
+        $('.bx').each(function () {
+           $(this).is(':checked') ?
+               $newSelector.css('visibility', 'visible')
+               : $newSelector.css('visibility', 'hidden');
+        });
+
+        $('.bx').change(function(){
+                $newSelector.css('visibility', 'visible');
+                $newSelector.css('visibility', 'hidden');
+        });
+
+        //$('#' + $(this).attr('id') + 'Img').css('visibility', 'hidden');
+
+    });
+</script>
+
+</body>
+</html>
